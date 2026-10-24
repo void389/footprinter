@@ -11,3 +11,9 @@ test("lcc68", () => {
 
   expect(svgContent).toMatchSvgSnapshot(import.meta.path, "lcc68")
 })
+
+test("rejects a zero pitch", () => {
+  expect(() => fp.string("lcc_p0mm").circuitJson()).toThrow(
+    "LCC pitch must be greater than zero",
+  )
+})
